@@ -22,7 +22,7 @@
 
   
 
-  <title>genshen | 勒马听风</title>
+  <title>genshen impact网页的部分模仿 | 勒马听风</title>
 
   
 
@@ -99,11 +99,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">genshen</h1>
+          <h1 class="title-wrap">genshen impact网页的部分模仿</h1>
           <h2 class="title-sub-wrap">
             <strong>勒马听风</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2024-03-04T08:36:51.000Z" itemprop="datePublished">2024-03-04</time>
+            <time  class="article-date" datetime="2024-03-04T14:46:28.000Z" itemprop="datePublished">2024-03-04</time>
           </h2>
           
           
@@ -136,8 +136,8 @@
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
         <p><a name="kVt0h"></a></p>
 <h2 id="1-写在前面"><a href="#1-写在前面" class="headerlink" title="1.写在前面"></a>1.写在前面</h2><p>最近闲来无事，学习了前端的HTML+CSS还有javascript，刚好想要做点什么项目练练手，但是我自己写网页吧，还要自己进行网页设计，布局什么的还要自己想。我嫌太麻烦，还不如找个现成的网页模仿做一个不香嘛。<br>于是乎打开了原神官网（原神，启动！）觉得布局还不错，就决定模仿着试一下，就当给自己这段时间的学习做个总结。<br><a name="YSfr3"></a></p>
-<h2 id="2-网页展示"><a href="#2-网页展示" class="headerlink" title="2.网页展示"></a>2.网页展示</h2><p>话不多说，先看图：<br><img src="/2024/03/04/genshen/1.png" alt="image.png"><br><img src="/2024/03/04/genshen/2.png" alt="image.png"><img src="/2024/03/04/genshen/3.png" alt="image.png"><br><img src="/2024/03/04/genshen/4.png" alt="image.png"><br>还有一些没有展示的，算了，那就先不展示了。其实我只完成了一小部分的网页<strong>首页</strong>，<strong>新闻</strong>，<strong>角色</strong>和<strong>漫画</strong>，要是全部都做下来对我这种新手来说也不太可能。而且每个页面也不是完全模仿，也都有自己的一些想法（当然也有可能有些效果是作者做不出来，所以放弃了…），总体来说，对自己做的还算满意。<br>这是文件夹目录：<br><img src="/2024/03/04/genshen/5.png" alt="image.png"><br>做这种项目，文件夹的分类还是很重要的，各种功能的文件都要区分好，不然要引用的时候找不到就麻烦了，或者修改也麻烦。<br><a name="iBxoE"></a></p>
-<h2 id="3-布局技巧"><a href="#3-布局技巧" class="headerlink" title="3.布局技巧"></a>3.布局技巧</h2><p>首先是顶部的导航栏制作，这个感觉比较麻烦。它首先要固定在顶部，用position：fixed可以解决，然后导航栏的每个导航模块，使用的是向左浮动，并在一排，在集体对这些模块进行修饰。<br>还有一个就是我也加上了音乐模块，也在导航栏上，点击音乐按钮，音乐停止，出现禁止的标志；再次点击，禁止标志消失，音乐自动播放。就是下面最左边的那个图案：<br><img src="/2024/03/04/genshen/6.png" alt="image.png"><br>首页的话基本没什么可说的，我们看新闻页面，这三个盒子采用的是装在一个大盒子里，这个大盒子采用flex布局，让这三个小盒子并排在一排，并且垂直居中。<br>每个小盒子下面的时间是实时的，用js调Date对象，显示出来就行。<br><img src="/2024/03/04/genshen/7.png" alt="image.png"><br>包括下面的这些盒子，采用的也是flex布局。感觉flex确实好用，让子元素垂直居中方法最简单，不用一个滋贺子一个子盒子一个子盒子的修改，真的方便。<br><img src="/2024/03/04/genshen/8.png" alt="image.png"><br>另外要说的就是角色页面了，我是做了个简单的入场动画的。点击左边的城市，右边的人物会有一个从页面右边到左边的入场动画的。<br>还有我发现我点击城市的时候，该城市盒子有个向右的滑动，但是却会影响其他城市盒子，发生抖动。研究过后我发现，城市向右滑动的时候会撑开它们的父盒子，于是乎我将父盒子宽度加宽，抖动的问题就解决了，没有抖动看起来就是丝滑啊。<br><img src="/2024/03/04/genshen/9.png" alt="image.png"><br>这个我一开始的想法是用js排他思想，想法没错，但是就是做不出来这个效果，后来我把js的代码改成了jquery，就可以了?! 好神奇，以后有时间一定研究研究研究为什么。还有就是jquery获得容器和修改容器的方法比js简单的多，js太麻烦了，一个一个调，一个一个改。话说以后要是学了框架，肯定更简单！</p>
+<h2 id="2-网页展示"><a href="#2-网页展示" class="headerlink" title="2.网页展示"></a>2.网页展示</h2><p>话不多说，先看图：<br><img src="03/04/impact/1.png" alt="image.png"><br><img src="2.png" alt="image.png"><img src="3.png" alt="image.png"><br><img src="4.png" alt="image.png"><br>还有一些没有展示的，算了，那就先不展示了。其实我只完成了一小部分的网页<strong>首页</strong>，<strong>新闻</strong>，<strong>角色</strong>和<strong>漫画</strong>，要是全部都做下来对我这种新手来说也不太可能。而且每个页面也不是完全模仿，也都有自己的一些想法（当然也有可能有些效果是作者做不出来，所以放弃了…），总体来说，对自己做的还算满意。<br>这是文件夹目录：<br><img src="5.png" alt="image.png"><br>做这种项目，文件夹的分类还是很重要的，各种功能的文件都要区分好，不然要引用的时候找不到就麻烦了，或者修改也麻烦。<br><a name="iBxoE"></a></p>
+<h2 id="3-布局技巧"><a href="#3-布局技巧" class="headerlink" title="3.布局技巧"></a>3.布局技巧</h2><p>首先是顶部的导航栏制作，这个感觉比较麻烦。它首先要固定在顶部，用position：fixed可以解决，然后导航栏的每个导航模块，使用的是向左浮动，并在一排，在集体对这些模块进行修饰。<br>还有一个就是我也加上了音乐模块，也在导航栏上，点击音乐按钮，音乐停止，出现禁止的标志；再次点击，禁止标志消失，音乐自动播放。就是下面最左边的那个图案：<br><img src="6.png" alt="image.png"><br>首页的话基本没什么可说的，我们看新闻页面，这三个盒子采用的是装在一个大盒子里，这个大盒子采用flex布局，让这三个小盒子并排在一排，并且垂直居中。<br>每个小盒子下面的时间是实时的，用js调Date对象，显示出来就行。<br><img src="7.png" alt="image.png"><br>包括下面的这些盒子，采用的也是flex布局。感觉flex确实好用，让子元素垂直居中方法最简单，不用一个滋贺子一个子盒子一个子盒子的修改，真的方便。<br><img src="8.png" alt="image.png"><br>另外要说的就是角色页面了，我是做了个简单的入场动画的。点击左边的城市，右边的人物会有一个从页面右边到左边的入场动画的。<br>还有我发现我点击城市的时候，该城市盒子有个向右的滑动，但是却会影响其他城市盒子，发生抖动。研究过后我发现，城市向右滑动的时候会撑开它们的父盒子，于是乎我将父盒子宽度加宽，抖动的问题就解决了，没有抖动看起来就是丝滑啊。<br><img src="9.png" alt="image.png"><br>这个我一开始的想法是用js排他思想，想法没错，但是就是做不出来这个效果，后来我把js的代码改成了jquery，就可以了?! 好神奇，以后有时间一定研究研究研究为什么。还有就是jquery获得容器和修改容器的方法比js简单的多，js太麻烦了，一个一个调，一个一个改。话说以后要是学了框架，肯定更简单！</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> &lt;script&gt;</span><br><span class="line">        $(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> $arr1 = $(<span class="string">&#x27;.state li&#x27;</span>);</span><br><span class="line">    <span class="keyword">var</span> $imgs = $(<span class="string">&#x27;.feng, .yan, .lei, .cao&#x27;</span>);</span><br><span class="line">    <span class="keyword">var</span> $pics = $(<span class="string">&#x27;.wendi img, .zhongli img, .ying img, .naxida img&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    $arr1.<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> index = $arr1.<span class="title function_">index</span>(<span class="variable language_">this</span>);</span><br><span class="line">        $arr1.<span class="title function_">css</span>(&#123;</span><br><span class="line">            <span class="string">&#x27;marginLeft&#x27;</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;backgroundColor&#x27;</span>: <span class="string">&#x27;rgba(0,0,0,0)&#x27;</span></span><br><span class="line">        &#125;);</span><br><span class="line">        $imgs.<span class="title function_">hide</span>();</span><br><span class="line">        $pics.<span class="title function_">hide</span>();</span><br><span class="line"></span><br><span class="line">        $(<span class="variable language_">this</span>).<span class="title function_">css</span>(&#123;</span><br><span class="line">            <span class="string">&#x27;marginLeft&#x27;</span>: <span class="string">&#x27;15px&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;backgroundColor&#x27;</span>: <span class="string">&#x27;rgba(0,0,0,0.5)&#x27;</span>,</span><br><span class="line">        &#125;);</span><br><span class="line">        $imgs.<span class="title function_">eq</span>(index).<span class="title function_">show</span>();</span><br><span class="line">        $pics.<span class="title function_">eq</span>(index).<span class="title function_">show</span>();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>到后面就差不多了，漫画部分也是用flex布局写的，就没什么可讲的了。<br><a name="vQ4W8"></a></p>
 <h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h2><p>这个项目还有很多不尽人意的地方，比如就是导航栏，每个页面都要用到导航栏，我却笨笨的把每个页面都加上导航栏的代码，代码冗余量好大！以后做这些公共样式一定得找个办法写一次就行，其他的需要了引入就行了，。<br>还有就是页面的盒子布局比较混乱，这个我在写css的时候就发现了，前前后后修改了很多遍，以后要多多学习布局技巧，才能提高效率。<br>给class起名的大部分也是拼音，这个我也是被自己整笑了，还是老老实实把英语给学好吧，不然以后肯定被人笑话。<br>好了这篇内容就写到这里了。主要的目的呢还是给这段时间的自己做个学习总结，看看学习成果如何。接下来的学习内容主要是网络相关的，然后再学点node与npm。</p>
@@ -148,28 +148,14 @@
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2024/03/04/impact/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">genshen impact网页的部分模仿</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2023/12/19/hello-world/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Hello World</h2>
+        <a href="/2024/03/04/genshen/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">genshen</h2>
         </a>
       
       <div class="card-text--row">Older</div>
