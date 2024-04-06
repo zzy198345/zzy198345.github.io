@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="勒马听风">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一.项目介绍本项目基于 Vue3+Element UI 完成了小区后台管理系统，其中包括登录与注册模块，用户信息列表模块，用户信息修改模块，可视化统计表展示模块以及支付页面模块。 二.登录与注册登录与注册模块： 1.ajax我们在 util 文件夹，创建 axios 实例发送异步请求，并且添加请求拦截器和响应拦截器，以便在发起请求和接收响应时进行一些通用的处理。 1npm install axi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小区物业后台管理系统">
+<meta property="og:url" content="http://example.com/2024/04/06/myapp/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一.项目介绍本项目基于 Vue3+Element UI 完成了小区后台管理系统，其中包括登录与注册模块，用户信息列表模块，用户信息修改模块，可视化统计表展示模块以及支付页面模块。 二.登录与注册登录与注册模块： 1.ajax我们在 util 文件夹，创建 axios 实例发送异步请求，并且添加请求拦截器和响应拦截器，以便在发起请求和接收响应时进行一些通用的处理。 1npm install axi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/04/06/myapp/1.png">
+<meta property="og:image" content="http://example.com/2024/04/06/myapp/2.png">
+<meta property="og:image" content="http://example.com/2024/04/06/myapp/3%E3%80%81.png">
+<meta property="og:image" content="http://example.com/2024/04/06/myapp/4.png">
+<meta property="og:image" content="http://example.com/2024/04/06/myapp/5.png">
+<meta property="og:image" content="http://example.com/2024/04/06/myapp/6.png">
+<meta property="og:image" content="http://example.com/2024/04/06/myapp/7.png">
+<meta property="og:image" content="http://example.com/2024/04/06/myapp/8.png">
+<meta property="og:image" content="http://example.com/2024/04/06/myapp/9.png">
+<meta property="article:published_time" content="2024-04-06T13:30:12.000Z">
+<meta property="article:modified_time" content="2024-04-06T13:37:06.451Z">
+<meta property="article:author" content="勒马听风">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2024/04/06/myapp/1.png">
+  
+  
+  
+  <title>小区物业后台管理系统 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>勒马听风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="小区物业后台管理系统"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-06 21:30" pubdate>
+          2024年4月6日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">小区物业后台管理系统</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a name="XBlGu"></a></p>
+<h2 id="一-项目介绍"><a href="#一-项目介绍" class="headerlink" title="一.项目介绍"></a>一.项目介绍</h2><p>本项目基于 Vue3+Element UI 完成了小区后台管理系统，其中包括<strong>登录与注册</strong>模块，<strong>用户信息列表</strong>模块，<strong>用户信息修改</strong>模块，<strong>可视化统计表展示</strong>模块以及<strong>支付页面</strong>模块。<br><a name="f1SFr"></a></p>
+<h2 id="二-登录与注册"><a href="#二-登录与注册" class="headerlink" title="二.登录与注册"></a>二.登录与注册</h2><p>登录与注册模块：<br><img src="1.png" srcset="/img/loading.gif" lazyload alt="image.png"><br><a name="sEkJE"></a></p>
+<h3 id="1-ajax"><a href="#1-ajax" class="headerlink" title="1.ajax"></a>1.ajax</h3><p>我们在 util 文件夹，创建 <strong>axios 实例</strong>发送异步请求，并且添加请求拦截器和响应拦截器，以便在发起请求和接收响应时进行一些通用的处理。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">npm install axios --save<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs vue">import axios from &#x27;axios&#x27;<br>let axiosurl = &quot;&quot;<br>if(process.env.NODE_ENV === &quot;development&quot;)&#123;<br>    axiosurl = process.env.VUE_APP_API<br>&#125;<br> else &#123;<br>    axiosurl = process.env.VUE_APP_API<br> &#125;<br><br>//创建axios实例<br>const service  = axios.create(&#123;<br>    baseURL:axiosurl<br>&#125;)<br>// 添加请求拦截器<br>axios.interceptors.request.use(function (config) &#123;<br>    // 在发送请求之前做些什么<br>    return config;<br>  &#125;, function (error) &#123;<br>    // 对请求错误做些什么<br>    return Promise.reject(error);<br>  &#125;);<br><br>// 添加响应拦截器<br>axios.interceptors.response.use(function (response) &#123;<br>    // 2xx 范围内的状态码都会触发该函数。<br>    // 对响应数据做点什么<br>    return response;<br>  &#125;, function (error) &#123;<br>    // 超出 2xx 范围的状态码都会触发该函数。<br>    // 对响应错误做点什么<br>    console.log(&#x27;error&#x27;, error);<br>    return Promise.reject(error);<br>  &#125;);<br><br>  export default service<br></code></pre></td></tr></table></figure>
+<p>然后在 API 文件夹下创建封装数据请求的函数 link。通过之前定义的 Axios 实例 <strong>service</strong> 发起 HTTP 请求。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs vue">import service from &quot;../util/service&quot; <br>//封装相关数据请求<br>let link=(url,method=&quot;get&quot;,data,params)=&gt;&#123;<br>    return  new Promise((resolve, reject)=&gt;&#123;<br>        service.request(&#123;<br>            url,<br>            method,<br>            data,<br>            params<br>        &#125;).then((ok)=&gt;&#123;<br>            resolve(ok)<br>        &#125;).catch((err)=&gt;&#123;<br>            reject(err)<br>        &#125;)<br>    &#125;)<br>&#125;<br><br>export default link<br></code></pre></td></tr></table></figure>
+<p>前端的 ajax 请求基本封装完了，接下来我们在mock 文件夹下使用下载** json-server** <strong>模拟服务器端接口数据，</strong>这样可以不依赖后端 API 进行开发。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">npm install -g json-server<br></code></pre></td></tr></table></figure>
+<p>然后可以使用 <strong>npx</strong> 运行 <strong>json-server</strong>：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br>npx <span class="hljs-type">json</span>-<span class="hljs-keyword">server</span> <span class="hljs-comment">--watch data.json --port 8888</span><br></code></pre></td></tr></table></figure>
+<p>在 package.json 重新命名在启动  **npm run mock **方便<br>服务器启动：<br><img src="2.png" srcset="/img/loading.gif" lazyload alt="image.png"><br>获取注册数据：<br><img src="3%E3%80%81.png" srcset="/img/loading.gif" lazyload alt="image.png"><br><a name="BOd1K"></a></p>
+<h3 id="2-js-md5-密码加密"><a href="#2-js-md5-密码加密" class="headerlink" title="2.js-md5 密码加密"></a>2.js-md5 密码加密</h3><p>为了保证登录注册的安全性，我们采用 js-md5 对输入的密码进行加密。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">npm install -D js-md5<br></code></pre></td></tr></table></figure>
+<p>封装 hook 加密：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs vue">import md5 from &quot;js-md5&quot;;<br><br>import &#123; ref &#125; from &quot;vue&quot;; <br><br>export default function(data)&#123;<br>    let md5Data = ref(md5(data))<br>    return md5Data<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>对输入的数据我们使用 md5 方法进行加密：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vue">let data = &#123;<br>          text: ruleForm.text, <br>          pwd: useMd5(ruleForm.pass).value<br>        &#125;<br></code></pre></td></tr></table></figure>
+<p><a name="X9VMe"></a></p>
+<h2 id="三-可视化图表"><a href="#三-可视化图表" class="headerlink" title="三. 可视化图表"></a>三. 可视化图表</h2><p>安装可视化图表库echarts     </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">npm install --save echarts          <br></code></pre></td></tr></table></figure>
+<p>我们先在 App.vue 引入echarts     </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup&gt;<br>  // 引入可视化图表库<br>  import * as echarts from &quot;echarts&quot;<br>  import &#123;provide, Provider&#125; from &quot;vue&quot;<br>  provide(&quot;echarts&quot;, echarts)<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<p>再使用 <strong>inject</strong> 函数注入了名为 <strong>$echarts</strong> 的变量，用于获取 ECharts 实例。在 <strong>onMounted</strong> 钩子中，首先通过 <strong>Link</strong> 函数请求了一个 API (<strong>apiUrl.chartData0ne</strong>) 用于获取数据，并将数据分别存储到 <strong>xdata</strong> 和 <strong>ydata</strong> 中。<br>然后初始化 ECharts 实例 <strong>myChart</strong>，并使用 <strong>setOption</strong> 方法设置了图表的配置选项。x 轴的数据使用请求回来的数据，而 y 轴的数据则是固定的，<strong>series</strong> 中定义了图表的类型为柱状图（<strong>bar</strong>），以及柱状图的样式配置，包括颜色渐变和圆角等。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>    &lt;div&gt;<br>        &lt;h2&gt;人数统计&lt;/h2&gt;<br>        &lt;div class=&quot;chartone&quot;&gt;&lt;/div&gt;<br>    &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script setup&gt;<br>    import &#123; inject, onMounted, reactive &#125; from &quot;vue&quot;<br>    import Link from &#x27;../API/Link.js&#x27;<br>    import apiUrl from &#x27;../API/url.js&#x27;<br><br>    let data = reactive(&#123;&#125;)<br>    let xdata = reactive([])<br>    let ydata = reactive([])<br><br>    let $echarts = inject(&quot;echarts&quot;)<br><br>    onMounted(() =&gt; &#123;<br>        let myChart = $echarts.init(document.querySelector(&quot;.chartone&quot;))<br><br>        Link(apiUrl.chartData0ne).then(ok =&gt; &#123;<br>            let &#123; data &#125; = ok<br>            xdata = data.map(v=&gt; v.title)<br>            ydata = data.map(v=&gt; v.num)<br>        &#125;)<br>        myChart.setOption(&#123;<br>            xAxis: &#123;<br>                type: &quot;category&quot;,<br>                data: xdata               <br>            &#125;,<br>            yAxis: &#123;<br>                type: &quot;value&quot;,                 <br>            &#125;,<br>            tooltip:&#123;&#125;,<br>            series: [<br>                &#123;<br>                    type: &quot;bar&quot;,  //定义图表的类型为柱状图                 <br>                    data: ydata,<br>                    itemStyle:&#123;<br>                        normal:&#123;<br>                            barBorderRadius:[20,20,0,0],<br>                            color:new $echarts.graphic.LinearGradient(0,1,0,0,[<br>                                &#123;<br>                                    offset:0,<br>                                    color:&quot;#005eaa&quot;<br>                                &#125;,<br>                                &#123;<br>                                    offset:0.5,<br>                                    color:&quot;#339ca8&quot;<br>                                &#125;,<br>                                &#123;<br>                                    offset:1,<br>                                    color:&quot;#cda819&quot;<br>                                &#125;,<br>                            ])<br>                        &#125;<br>                    &#125;<br>                &#125;<br>            ]<br>        &#125;)<br>    &#125;)<br><br>&lt;/script&gt;<br><br>&lt;style&gt;<br>    h2 &#123;<br>        height: 60px;<br>        color: chocolate;<br>        line-height: 0.6rem;<br>        font-size: 0.25rem;<br>        margin-left:4rem;<br>    &#125;<br>    .chartone &#123;<br>        height: 5rem;<br>    &#125;<br><br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+<p>效果如下：<br><img src="4.png" srcset="/img/loading.gif" lazyload alt="image.png"><br>我们查询 echarts 官网，根据上面的方法，总共绘制了如下图表：<br><img src="5.png" srcset="/img/loading.gif" lazyload alt="image.png"><br><a name="Jh7Vk"></a></p>
+<h2 id="三-二维码生成"><a href="#三-二维码生成" class="headerlink" title="三.二维码生成"></a>三.二维码生成</h2><p>安装 qrcodejs2 生成二维码,具体过程如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">npm i qrcodejs2 <br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>    &lt;div class=&quot;content&quot;&gt;<br>     &lt;div class=&quot;inputDom&quot;&gt;<br>        &lt;el-input v-model=&quot;input&quot; style=&quot;width: 240px&quot; placeholder=&quot;请输入收款金额&quot; /&gt;<br>        &lt;el-button type=&quot;success&quot; @click=&quot;MakeQRcode&quot;&gt;生成二维码&lt;/el-button&gt;<br>     &lt;/div&gt;<br>     &lt;div class=&quot;qrcode&quot; ref=&quot;qrcodeDom&quot;&gt;&lt;/div&gt;<br>    &lt;/div&gt;<br> &lt;/template&gt;<br> <br> &lt;script setup&gt;<br>   import &#123;ref, nextTick&#125; from &quot;vue&quot;<br>   import QR from &quot;qrcodejs2&quot;<br>   const input = ref(&#x27;&#x27;)<br>   let qrcodeDom = ref(null)<br>    let MakeQRcode=()=&gt;&#123;<br>        //防止多次生成二维码<br>        qrcodeDom.value.innerHTML = &quot;&quot;<br>        nextTick(()=&gt;&#123;<br>            new QR(qrcodeDom.value, &#123;<br>                text:input.value,//生成二维码内容<br>                colorDark:&quot;#000&quot;, //二维码颜色<br>                coloeLight:&quot;#fff&quot;, //二维码背景色<br>                //correctLevel:QR.CorrectLevel.H<br>            &#125;)<br>        &#125;)<br>    &#125;<br> &lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<p>效果如下：<br><img src="6.png" srcset="/img/loading.gif" lazyload alt="image.png"><br><a name="o6ouA"></a></p>
+<h2 id="四-其他部分"><a href="#四-其他部分" class="headerlink" title="四.其他部分"></a>四.其他部分</h2><p>用户列表展示：<br><img src="7.png" srcset="/img/loading.gif" lazyload alt="image.png"><br>搜索功能：<br><img src="8.png" srcset="/img/loading.gif" lazyload alt="image.png"><br>修改功能：<br><img src="9.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>小区物业后台管理系统</div>
+      <div>http://example.com/2024/04/06/myapp/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>勒马听风</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/03/13/css-center/" title="css垂直居中方法总结">
+                        <span class="hidden-mobile">css垂直居中方法总结</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
